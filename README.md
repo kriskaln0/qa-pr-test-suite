@@ -14,6 +14,7 @@ npm install
 npm test            # all tests
 npm run test:live   # Part 1 only, hits Github
 npm run test:mock   # Part 2 only, no network
+npm run test:ui     # run vitest UI in browser
 npm run report      
 ```
 
@@ -54,17 +55,16 @@ request will give the worng number.
 Tests assert the Json structure first, then rules, so a broken response and a broken rule dont
 look the same
 
-**Part 1** - The schema checks six fields (id,  number, title, state,
+**Part 1**
+* The schema checks six fields (id,  number, title, state,
 draft, html_url) and ignores the ~35 others Github sends.
-Available fields - `curl -s "https://api.github.com/repos/appwrite/appwrite/pulls?per_page=1"`
-Documentation: `https://docs.github.com/en/rest/pulls/pulls?apiVersion=2026-03-10#list-pull-requests`
+* Available fields - `curl -s "https://api.github.com/repos/appwrite/appwrite/pulls?per_page=1"`
+* Documentation: `https://docs.github.com/en/rest/pulls/pulls?apiVersion=2026-03-10#list-pull-requests`
 
 **Part 2** - structure first, then two business rules:
-
-- `total_open_prs` must match the number of items in the list
-- a PR labelled `high-priority` must not be a draft
-
-They return a list of everything wrong rather than throwing on the first
+* `total_open_prs` must match the number of items in the list
+* a PR labelled `high-priority` must not be a draft
+* They return a list of everything wrong rather than throwing on the first
 problem. The last test breaks both rules on purpose, so we know the error
 messages really appear
 
