@@ -1,12 +1,13 @@
 {
   "name": "qa-pr-test-suite",
   "version": "1.0.0",
-  "description": "Reusable backend test automation suite for validating Pull Request data (GitHub live API + mocked middleware aggregation service).",
+  "description": "",
   "scripts": {
     "test": "vitest run",
     "test:live": "vitest run tests/part1-github-api.test.ts",
     "test:mock": "vitest run tests/part2-mock-validation.test.ts",
     "test:watch": "vitest",
+    "test:ui": "vitest --ui",
     "report": "vite preview --outDir .vitest",
     "lint": "tsc --noEmit"
   },
