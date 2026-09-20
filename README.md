@@ -42,12 +42,11 @@ tests/part2-mock-validation.test.ts  the mocked data test
 
 ### Pagination
 
-Github sends at most 100 PRs per request and appwrite has 549, so one
+* Github sends at most 100 PRs per request and appwrite has 549, so one
 request will give the worng number. 
-The client api asks for page 1, page 2, and so on,
+* The client api asks for page 1, page 2, and so on,
  and stops when a page comes back with fewer than 100 items.
-
-Pages are sorted oldest first. The test checks no id appears twice.
+* Pages are sorted oldest first. The test checks no id appears twice.
 
 
 ### Assertions
