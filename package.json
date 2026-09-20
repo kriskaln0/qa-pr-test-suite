@@ -1,0 +1,32 @@
+{
+  "name": "qa-pr-test-suite",
+  "version": "1.0.0",
+  "description": "Reusable backend test automation suite for validating Pull Request data (GitHub live API + mocked middleware aggregation service).",
+  "scripts": {
+    "test": "vitest run",
+    "test:live": "vitest run tests/part1-github-api.test.ts",
+    "test:mock": "vitest run tests/part2-mock-validation.test.ts",
+    "test:watch": "vitest",
+    "report": "vite preview --outDir .vitest",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "qa",
+    "testing",
+    "github-api",
+    "json-schema",
+    "vitest"
+  ],
+  "author": "Kristaps Kalnins",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@vitest/ui": "^5.0.1",
+    "typescript": "^5.5.3",
+    "vitest": "^5.0.1"
+  }
+}
